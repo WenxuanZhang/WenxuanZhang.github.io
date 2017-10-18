@@ -202,15 +202,75 @@ git push origin master
 </pre></div>
 
 
-<p>Then you could see your website at </p>
+<p>These command push the folder and file in the output folder to github and hen you could see your website at </p>
 <p>https://github.com/username/</p>
 <h3>Select a theme for your project</h3>
+<p>Pelican provide various <a href="http://www.pelicanthemes.com/">theme</a> that you could use for your website. </p>
+<p>This site is created based on <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/">VoidyBootstrap</a>. </p>
+<p>The process of inlcuding a theme is simple. First go to the <a href="https://github.com/robulouski/voidy-bootstrap">github page of voidynullness</a></p>
+<p>First create <code>sourcefolder/pelican-themes</code> folder then install pelican-themes &amp; pelican - plugins </p>
+<div class="highlight"><pre><span></span>git clone https://github.com/getpelican/pelican-plugins.git
+
+git clone --recursive https://github.com/getpelican/pelican-themes ./pelican-themes
+</pre></div>
+
+
+<p>After that, you could specify  your pelican configuration file.</p>
+<div class="highlight"><pre><span></span>THEME = &quot;pelican-themes/voidy-bootstrap&quot;
+PLUGIN_PATHS = [&#39;pelican-plugins&#39;]
+PLUGINS = [&#39;assets&#39;]
+# Adding Side Bar
+SIDEBAR = &quot;sidebar.html&quot;
+CUSTOM_SIDEBAR_MIDDLES = (&quot;sb_links.html&quot;, &quot;sb_taglist.html&quot;, )
+JINJA_ENVIRONMENT = {&#39;extensions&#39;: [&#39;jinja2.ext.i18n&#39;]}
+# Extra stylesheets, for bootstrap overrides or additional styling.
+STYLESHEET_FILES = (&quot;pygment.css&quot;, &quot;voidybootstrap.css&quot;,)
+
+# Put taglist at end of articles, and use the default sharing button implementation.
+CUSTOM_ARTICLE_FOOTERS = (&quot;taglist.html&quot;, &quot;sharing.html&quot;, )
+CUSTOM_SCRIPTS_ARTICLE = &quot;sharing_scripts.html&quot;
+</pre></div>
+
+
+<p>If you are working on python 2.7, then you could use a simple command </p>
+<div class="highlight"><pre><span></span>fab build
+</pre></div>
+
+
+<p>in your blogsource folder. The push the result in the output folder to the GitHub.</p>
 <h3>Writing Articles and Publish</h3>
+<p>After set up your web site, you could start to work on your first article. </p>
+<p>The simplest way to write arctile is using Markdown. There are multiple sources for that and if you were a apple users, you could download <a href="https://macdown.uranusjr.com/">MacDown</a> .</p>
+<p>By simply create .md file in the content folder, you could publish articles on your website. But please remember to add the following line at the top of your article</p>
+<div class="highlight"><pre><span></span><span class="n">Title</span><span class="o">:</span> <span class="n">Create</span> <span class="n">Your</span> <span class="n">Own</span> <span class="n">Website</span> <span class="n">by</span> <span class="n">Pelican</span> <span class="n">and</span> <span class="n">GitHub</span> 
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">09</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
+<span class="n">Modified</span><span class="o">:</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">09</span> <span class="mi">19</span><span class="o">:</span><span class="mi">30</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">Tech</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">pelican</span><span class="o">,</span> <span class="n">github</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">create</span><span class="o">-</span><span class="n">your</span><span class="o">-</span><span class="n">own</span><span class="o">-</span><span class="n">website</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">pelican</span><span class="o">-</span><span class="n">and</span><span class="o">-</span><span class="n">github</span>
+</pre></div>
+
+
+<ul>
+<li>Title: the title of your article</li>
+<li>Date: the date the file was created, pelican post the article by time order</li>
+<li>category: something you defined</li>
+<li>tags: what is this article about</li>
+<li>Slug: the url of the article, based on the above slug, the urls of this article is https://wenxuanzhang.github.io/create-your-own-website-by-pelican-and-github.html</li>
+</ul>
+<p>That's it. Start to build your first website now and you can make it. </p>
 <h3>Reference</h3>
 <ol>
-<li><a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html">Migrating to GitHub Pages using Pelican</a> by Amy Hannon</li>
-<li><a href="https://www.fullstackpython.com/blog/generating-static-websites-pelican-jinja2-markdown.html">How to Create Your First Static Site with Pelican and Jinja2
-Posted by Matt Makai on June 09, 2017.</a> by Matt Makai</li>
+<li>
+<p><a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html">Migrating to GitHub Pages using Pelican</a> by Amy Hannon</p>
+</li>
+<li>
+<p><a href="https://www.fullstackpython.com/blog/generating-static-websites-pelican-jinja2-markdown.html">How to Create Your First Static Site with Pelican and Jinja2
+Posted by Matt Makai on June 09, 2017.</a> by Matt Makai</p>
+</li>
+<li>
+<p><a href="http://pbpython.com/pelican-config.html">Configuring Pelican Static Blog</a> by <a href="http://pbpython.com/pelican-config.html">Chirs Moffitt</a></p>
+</li>
 </ol>
   </div>
   
