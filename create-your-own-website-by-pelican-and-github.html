@@ -258,6 +258,25 @@ CUSTOM_SCRIPTS_ARTICLE = &quot;sharing_scripts.html&quot;
 <li>tags: what is this article about</li>
 <li>Slug: the url of the article, based on the above slug, the urls of this article is https://wenxuanzhang.github.io/create-your-own-website-by-pelican-and-github.html</li>
 </ul>
+<p>Besides, after generating the html file using fab build command, you need to push the content in your output folder to github, to avoiding repetitive work, I have create a shell script named autopush.sh</p>
+<div class="highlight"><pre><span></span>    #!/bin/sh
+    git add .
+    git commit -m &quot;$1&quot;
+    git push origin master
+</pre></div>
+
+
+<p>All you need to do is change the mod of the file to </p>
+<div class="highlight"><pre><span></span>chmod 700 auotopush.sh
+</pre></div>
+
+
+<p>and make it an exeuctable.</p>
+<p>After that you can push your change by </p>
+<div class="highlight"><pre><span></span>./autopush &quot;commit message&quot;
+</pre></div>
+
+
 <p>That's it. Start to build your first website now and you can make it. </p>
 <h3>Reference</h3>
 <ol>
